@@ -35,7 +35,7 @@ import OrderDetails from "./pages/Profile/Orders/OrderDetails";
 import AllRefunds from "./pages/Profile/Orders/AllRefunds";
 import Address from "./pages/Profile/Address/Address";
 import SubCategory from "./components/Category/SubCategory";
-import Layout from "./Layout/Layout";
+import Layout from "./components/Layout/Layout";
 //  import PaymentMethod from "./pages/Profile/PaymentMethod"
 //  import Setting from "./pages/Profile/Setting"
 
