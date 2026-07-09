@@ -9,7 +9,7 @@ import Footer from "./components/sections/footer";
 import CategoryPage from "./pages/makeup/CategoryPage";
 import Home from "./pages/Home";
 import Wishlist from "./pages/Wishlist/Whishlist";
-import Layout from "./layout/layout";
+
 import Cart from "./pages/Cart/Cart";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
@@ -35,6 +35,7 @@ import OrderDetails from "./pages/Profile/Orders/OrderDetails";
 import AllRefunds from "./pages/Profile/Orders/AllRefunds";
 import Address from "./pages/Profile/Address/Address";
 import SubCategory from "./components/Category/SubCategory";
+import Layout from "./Layout/Layout";
 //  import PaymentMethod from "./pages/Profile/PaymentMethod"
 //  import Setting from "./pages/Profile/Setting"
 
@@ -63,7 +64,7 @@ useEffect(() => {
       />
        <Routes>
      
-      <Route element={<Layout />}>
+      <Route element={<Layout/>}>
         <Route path="/" element={<Home />} />
         <Route
 path="/search"
