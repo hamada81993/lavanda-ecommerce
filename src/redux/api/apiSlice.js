@@ -4,7 +4,7 @@ export const apiSlice = createApi({
   reducerPath: "api",
 
   baseQuery: fetchBaseQuery({
-   baseUrl: "/api/tenant/v1/",
+   baseUrl: import.meta.env.VITE_API_BASE_URL || "/api/tenant/v1/",
 
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("token");
