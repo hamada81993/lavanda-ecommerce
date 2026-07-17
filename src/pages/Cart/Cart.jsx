@@ -222,7 +222,7 @@ toast.success("Coupon Applied Successfully");
                 {/* <p>{t("emptyCartDesc")}</p> */}
                <Link
   to="/"
-  className="mt-4 bg-primary  text-white px-8 py-3 rounded-full font-semibold transition"
+  className="mt-4 bg-primary-btn   text-white px-8 py-3 rounded-full font-semibold transition"
 >
                 {/* {t("startShopping")}</Link> */}
               startShopping  </Link>
@@ -314,6 +314,27 @@ onClick={() =>
 
     <div className="flex gap-3">
 
+
+
+<button
+  onClick={() => handleRemoveItem(item.rowId)}
+  className="
+    w-11 h-11
+    flex items-center justify-center
+    rounded-full
+    border border-gray-200
+    hover:bg-red-50
+    transition
+  "
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 21 24"
+    className="w-4 h-4 fill-[#73677E]"
+  >
+    <path d="M8.76923 -0.0292969C6.96185 -0.0292969 5.50985 1.47255 5.50985 3.28824V3.69163H1.84615C1.33754 3.69163 0.923077 4.10609 0.923077 4.6147V5.53778H0V7.38393H1.84615V21.2301C1.84615 22.7486 3.09692 23.9993 4.61538 23.9993H15.6923C17.2108 23.9993 18.4615 22.7486 18.4615 21.2301V7.38393H20.3077V5.53778H19.3846V4.6147C19.3846 4.10609 18.9702 3.69163 18.4615 3.69163H14.7978V3.28732C14.7978 1.47255 13.3458 -0.0292969 11.5385 -0.0292969H8.76923ZM8.76923 1.87409H11.5385C12.2806 1.87409 12.8945 2.47963 12.8945 3.28732V3.69163H7.41231V3.28732C7.41231 2.47963 8.02615 1.87501 8.76831 1.87501L8.76923 1.87409ZM3.69231 7.38393H8.42308C8.53754 7.39593 8.65108 7.41255 8.76923 7.41255H11.5385C11.6566 7.41255 11.7692 7.39593 11.8846 7.38393H16.6154V21.2301C16.6154 21.7498 16.212 22.1532 15.6923 22.1532H4.61538C4.09569 22.1532 3.69231 21.7498 3.69231 21.2301V7.38393ZM5.53846 9.23009V20.307H7.38461V9.23009H5.53846ZM9.23077 9.23009V20.307H11.0769V9.23009H9.23077ZM12.9231 9.23009V20.307H14.7692V9.23009H12.9231Z" />
+  </svg>
+</button>
 <button
   onClick={(e) => handleWishlist(e, item.options.product_id)}
   className="w-8 h-8 rounded-full flex items-center justify-center"
@@ -326,14 +347,6 @@ onClick={() =>
   }
 />
 </button>
-
-      <button
-        onClick={() => handleRemoveItem(item.rowId)}
-        className="w-11 h-11 rounded-full border border-gray-200 hover:bg-red-50 hover:text-red-500 transition"
-      >
-        🗑️
-      </button>
-
     </div>
   </div>
 </div>
@@ -476,7 +489,7 @@ font-bold
     <button
       onClick={handleApplyCoupon}
       disabled={couponLoading}
-      className="px-6 rounded-xl bg-primary text-white font-medium transition"
+      className="px-6 rounded-xl bg-primary-btn text-white font-medium transition"
     >
       {couponLoading ? "..." : "Apply"}
     </button>
@@ -560,7 +573,7 @@ font-bold
     onClick={handleProceedCheckout}
     
     disabled={cartItems.length === 0}
-    className="w-full h-14 rounded-2xl bg-primary text-white font-semibold text-lg  transition"
+    className="w-full h-14 rounded-2xl bg-primary-btn  text-white font-semibold text-lg  transition"
   >
     Proceed to Checkout
     

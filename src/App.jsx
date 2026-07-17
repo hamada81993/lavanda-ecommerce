@@ -36,6 +36,10 @@ import AllRefunds from "./pages/Profile/Orders/AllRefunds";
 import Address from "./pages/Profile/Address/Address";
 import SubCategory from "./components/Category/SubCategory";
 import Layout from "./components/Layout/Layout";
+import Dashboard from "./pages/Profile/Dashboard";
+import Blogs from "./pages/Blogs";
+import BlogDetailsPage from "./pages/BlogDetailsPage";
+
 //  import PaymentMethod from "./pages/Profile/PaymentMethod"
 //  import Setting from "./pages/Profile/Setting"
 
@@ -84,8 +88,12 @@ element={<Search/>}
         <Route path="/checkout" element={<CheckoutPage/>} />
         
         <Route path="/payment" element={<Payment/>} />
-        <Route path="/:category/:type" element={<CategoryPage />} />
+        {/* <Route path="/:category/:type" element={<CategoryPage />} /> */}
         <Route path="/subcategory/:id" element={<SubCategory/>} />
+        <Route
+  path="/category/:id"
+  element={<CategoryPage />}
+/>
         <Route
   path="/forgot-password"
   element={<ForgotPassword />}
@@ -110,15 +118,15 @@ element={<Search/>}
   path="/category/:id"
   element={<CategoryDetails/>}
 /> 
-      </Route>
       <Route path="/profile-layout" element={<ProfileLayout/>}>
 
-    {/* <Route index element={<Dashboard />} /> */}
+<Route index element={<Dashboard />} />
 
     <Route
         path="profile"
         element={<Profile />}
     />
+
 <Route
   path="/profile-layout/orders/:id"
   element={<OrderDetails/>}
@@ -136,7 +144,14 @@ element={<Search/>}
         path="/profile-layout/address"
         element={<Address/>}
     />
+      </Route>
 
+    
+<Route path="/blogs" element={<Blogs/>} />
+  <Route
+    path="/blogs/:id"
+    element={<BlogDetailsPage/>}
+  />
     {/* <Route
         path="payment"
         element={<PaymentMethod/>}
@@ -153,7 +168,9 @@ element={<Search/>}
     />  */}
 
 </Route>
+
     </Routes>
+    
     </>
   );
 }

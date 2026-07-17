@@ -115,6 +115,8 @@ const handleSubmit = async (e) => {
 //   );
 // };
   return (
+    <>
+
     <form
       onSubmit={handleSubmit}
       className="space-y-5"
@@ -163,18 +165,18 @@ const handleSubmit = async (e) => {
             mt-1
             h-4
             w-4
-            accent-[#8F7AAE]
+            accent-[var(--primaryText)]
             rounded
           "
         />
 
         <p className="text-[14px] leading-6 text-[#777]">
           I agree to{" "}
-          <span className="text-[#8F7AAE] font-medium cursor-pointer">
+          <span className="text-[var(--primaryText)] font-medium cursor-pointer">
             Terms of Services
           </span>{" "}
           &{" "}
-          <span className="text-[#8F7AAE] font-medium cursor-pointer">
+          <span className="text-[var(--primaryText)] font-medium cursor-pointer">
             Privacy Policy
           </span>
         </p>
@@ -185,8 +187,8 @@ const handleSubmit = async (e) => {
         className="
           w-full
           h-[54px]
-          rounded-full
-          bg-[#8F7AAE]
+          rounded
+       btn-primary
           text-white
           text-[18px]
           font-semibold
@@ -194,7 +196,7 @@ const handleSubmit = async (e) => {
           hover:opacity-90
         "
       >
-        Create Account
+        Register
       </button>
 {/* Divider */}
 
@@ -276,11 +278,12 @@ const handleSubmit = async (e) => {
         Already have an account?{" "}
         <span
           onClick={() => navigate("/login")}
-          className="text-[#8F7AAE] font-semibold cursor-pointer"
+          className="text-[var(--primaryText)]  font-semibold cursor-pointer"
         >
-          Sign In
+          Login
         </span>
       </p>
     </form>
+    </>
   );
 }

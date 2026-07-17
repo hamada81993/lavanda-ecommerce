@@ -91,7 +91,7 @@ const handleSubmit = async (e) => {
             name="remember"
             checked={formData.remember}
             onChange={handleChange}
-            className="accent-[#8F7AAE]"
+            className="accent-[var(--primaryText)]"
           />
 
           <span className="text-sm text-[#666]">
@@ -115,8 +115,8 @@ const handleSubmit = async (e) => {
         className="
           w-full
           h-[54px]
-          rounded-full
-          bg-[#8F7AAE]
+          rounded
+          btn-primary
           text-white
           text-[17px]
           font-semibold
@@ -215,7 +215,7 @@ const handleSubmit = async (e) => {
             navigate("/register")
           }
           className="
-            text-[#8F7AAE]
+           text-[var(--primaryText)]
             font-semibold
             cursor-pointer
           "

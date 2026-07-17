@@ -19,9 +19,9 @@ import SearchBar from "../SearchBar/SearchBar";
 import HeaderActions from "../Header/HeaderActions";
 import FilterDrawer from "../Header/FilterDrawer";
 import Navigation from "../Header/Navigation";
-import MobileMenu from "../Header/MobileMenu";
 import { useGetWishlistQuery } from "../../redux/wishlist/wishlistApi";
 import { useGetCartQuery } from "../../redux/cart/cartApi";
+import MobileMenu from "../Header/MobileMenu";
 ;
 export default function Header() {
    const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState(false);
@@ -69,7 +69,24 @@ const handleResetFilters = () => {
 };
 
 const handleApplyFilters = () => {
-  console.log(selectedFilters);
+  const filterToCategoryMap = {
+    "makeup": 1,
+    "skincare": 2,
+    "hair-care": 3,
+    "perfumes": 4,
+    "baby-care": 5,
+    "personal-care": 6,
+    "body-care": 6,
+    "devices": 7,
+  };
+  
+  const activeFilter = selectedFilters.find(f => filterToCategoryMap[f]);
+  if (activeFilter) {
+    const categoryId = filterToCategoryMap[activeFilter];
+    navigate(`/search?category_id=${categoryId}`);
+  } else {
+    navigate(`/search`);
+  }
   setIsFilterDrawerOpen(false);
 };
   const handleNavigate = (category, type) => {
@@ -97,7 +114,7 @@ const handleApplyFilters = () => {
               )
             }
           >
-            <FiSearch size={22} />
+            <FiSearch  size={22} />
           </button>
 
           <div
@@ -137,7 +154,10 @@ const handleApplyFilters = () => {
         {/* Right */}
         <div className="flex items-center gap-4">
 
-          <FiUser
+          <FiUser onClick={() => {
+      navigate("/register");
+  
+    }}
             size={22}
             className="cursor-pointer"
           />

@@ -4,7 +4,7 @@
   --color-primary: #8A77A9;
   --color-primary-light: #E6DFEE;
   --color-primary-dark: #6D5B8C;
-
+--color-primary-btn: #8F7AAE;
   --color-text: #302245;
   --color-muted: #757575;
 
@@ -14,8 +14,11 @@
 
 :root {
   --font-family: "Inter", sans-serif;
-   --color-primary: #8a77a9;
+   /* --color-primary: #8a77a9; */
+   --color-primary: #8F7AAE;
   --color-primary-light: #e6dfee;
+
+
   --color-primary-dark: #6d5b8c;
 
   --color-text-main: #1a1a1a;
@@ -30,7 +33,7 @@
   --color-success: #2ecc71;
 
   --color-badge-new: #f1f0f5;
-  
+  --color-bg-button: #EBEAF0;
 
 }
 
@@ -46,6 +49,32 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.placeholder{
+  color: #302245;
+font-feature-settings: 'liga' off, 'clig' off;
+font-family: "Martian Mono";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 22px; /* 157.143% */
+letter-spacing: -0.408px;
+}
+@layer components {
+  .btn-primary {
+    @apply bg-primary-btn font-semibold ;
+  }
+    .category-border{
+    @apply border-b border-gray-300 ;
+
+  }
+}
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+
+}
+
 /* @layer base {
   img {
     max-width: none;

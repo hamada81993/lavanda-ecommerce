@@ -35,10 +35,35 @@ export const productsApi = apiSlice.injectEndpoints({
         }
       },
     }),
+       getFilteredProducts: builder.query({
+      query: ({ search = "", category_id, sub_category_id, child_category_id, min_price, max_price, page = 1 } = {}) => ({
+        url: "product",
+        params: {
+          ...(search && { search }),
+          ...(category_id && { category_id }),
+          ...(sub_category_id && { sub_category_id }),
+          ...(child_category_id && { child_category_id }),
+          ...(min_price && { from_price: min_price }),
+          ...(max_price && { to_price: max_price }),
+          page,
+        },
+      }),
+      transformResponse: (response) => response,
+    }),
+
+    searchProducts: builder.query({
+      query: (keyword) => ({
+        url: "search-items",
+        params: { keyword },
+      }),
+      transformResponse: (response) => response.data ?? response,
+    }),
   }),
 });
 
 export const {
   useGetRecentProductsQuery,
    useGetProductDetailsQuery,
+    useGetFilteredProductsQuery,
+  useSearchProductsQuery,
 } = productsApi;

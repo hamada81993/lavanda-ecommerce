@@ -38,7 +38,8 @@ export const siteSettings = {
 
   theme: {
     primary: "#8A77A9",
-
+primaryBtn: "#8F7AAE",
+primaryText:"#8F7AAE",
     primaryLight: "#E6DFEE",
 
     primaryDark: "#6D5B8C",

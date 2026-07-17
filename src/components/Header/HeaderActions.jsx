@@ -67,7 +67,7 @@ bg-primary
    )} 
  </div>            
  <FiGlobe className="w-5 h-5 lg:w-5 lg:h-5" />
-             < FiBell className="w-5 h-5 lg:w-5 lg:h-5"/>
+             < FiBell onClick={() => navigate("/profile-layout")}className="w-5 h-5 lg:w-5 lg:h-5"/>
              <FiUser onClick={() => navigate("/register")} className="w-5 h-5 lg:w-5 lg:h-5" />
              <button
   onClick={() => setMobileMenuOpen(true)}

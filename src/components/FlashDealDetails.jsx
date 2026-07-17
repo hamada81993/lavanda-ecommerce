@@ -1,49 +1,51 @@
-import { FiChevronRight } from "react-icons/fi";
-
 export default function FlashDealDetails({
   leftImage,
   logoImage,
   rightImage,
-}) { 
+}) {
   return (
-    <section className="w-full py-6 px-4">
+    <section className="container mx-auto my-10 px-4">
       <div
         className="
           relative
+          h-[198px]
           overflow-hidden
-          rounded-2xl
-          shadow-md
+          rounded-[17.1px]
           bg-gradient-to-r
-          from-gray-300
-          via-[#b7adc7]
-          to-[#d0c2e6]
-          min-h-[200px]
+          from-[#E0E0E0]
+          via-[#B7ADC7]
+          to-[#D0C2E6]
+          shadow-[0_3px_12px_rgba(0,0,0,.08)]
           flex
           items-center
-          justify-center
+
+          max-md:h-auto
+          max-md:py-10
         "
       >
-        {/* Left Image */}
+        {/* Left Bottles */}
         {leftImage && (
-          <div
+          <img
+            src={leftImage}
+            alt=""
             className="
               absolute
-              -left-5
-              -top-14
-              w-[290px]
-              h-[407px]
+              w-[205px]
+              h-[368px]
+              object-cover
               rotate-[14.5deg]
-              z-10
+              -left-[45px]
+              -top-[88px]
               pointer-events-none
-              hidden lg:block
+              select-none
+              z-10
+
+              max-md:w-[120px]
+              max-md:h-[215px]
+              max-md:-left-8
+              max-md:-top-10
             "
-          >
-            <img
-              src={leftImage}
-              alt=""
-              className="w-full h-full object-contain opacity-95"
-            />
-          </div>
+          />
         )}
 
         {/* Content */}
@@ -51,83 +53,149 @@ export default function FlashDealDetails({
           className="
             relative
             z-20
-            flex
-            flex-col
-            md:flex-row
+            grid
+            grid-cols-[500px_1fr]
             items-center
-            justify-between
             w-full
-            max-w-5xl
-            px-6
-            md:px-10
-            gap-8
-            text-center
-            md:text-left
+            px-[38px]
+
+            max-md:grid-cols-1
+            max-md:px-5
+            max-md:gap-8
           "
         >
-          {/* Logo + Subtitle */}
-          <div className="flex-1 flex flex-col items-center md:items-start">
-            {logoImage && (
-              <div className="max-w-[485px] mb-[-10px]">
+          {/* LEFT */}
+          <div className="max-md:flex max-md:flex-col max-md:items-center">
+            <div className="flex items-center justify-between h-full">
+              {logoImage && (
                 <img
                   src={logoImage}
-                  alt="Logo"
-                  className="w-full object-contain"
+                  alt="Loreal"
+                  className="
+                    h-[112px]
+                    w-[454px]
+                    object-cover
+                    object-left
+                    shrink-0
+                    max-w-none
+
+                    max-md:w-[240px]
+                    max-md:h-auto
+                  "
                 />
-              </div>
-            )}
+              )}
+            </div>
+
+            <p
+              className="
+                -mt-2
+                ml-3
+                text-[20px]
+                font-['Montserrat']
+                font-medium
+                text-right
+                text-[#302245]
+
+                max-md:ml-0
+                max-md:mt-2
+                max-md:text-center
+                max-md:text-[15px]
+                max-md:leading-7
+              "
+            >
+              Experience the ultimate Parisian beauty ritual
+            </p>
           </div>
 
-          {/* CTA */}
-          <div className="flex flex-col items-center gap-4">
-            <h2 className="text-[#302245] text-xl md:text-3xl font-bold">
+          {/* RIGHT */}
+          <div
+            className="
+              flex
+              flex-col
+              items-center
+
+              max-md:pb-12
+            "
+          >
+            <h2
+              className="
+                text-[26px]
+                font-bold
+                text-[#302245]
+                mt-6
+
+                max-md:mt-0
+                max-md:text-[20px]
+                max-md:text-center
+              "
+            >
               Because You're Worth It
             </h2>
 
             <button
               className="
+                mt-5
+                h-[46px]
+                px-8
+                rounded-[9px]
+                bg-white
                 flex
                 items-center
                 gap-3
-                bg-white
-                px-6
-                py-3
-                rounded-lg
+                text-[15px]
                 font-bold
                 text-[#302245]
                 shadow-sm
-                hover:-translate-y-1
-                hover:shadow-lg
-                transition-all
-                duration-300
+                transition
+                hover:shadow-[2.137px_2.137px_2.137px_rgba(0,0,0,0.25)]
+
+                max-md:px-5
+                max-md:text-[13px]
+                max-md:h-[42px]
               "
             >
               SHOP THE COLLECTION
-              <FiChevronRight size={18} />
+
+              <svg
+                width="12"
+                height="20"
+                viewBox="0 0 13 26"
+                fill="none"
+              >
+                <path
+                  d="M1 1L11.5 13L1 25"
+                  stroke="#302245"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </button>
           </div>
         </div>
 
-        {/* Right Image */}
+        {/* Right Jar */}
         {rightImage && (
-          <div
+          <img
+            src={rightImage}
+            alt=""
             className="
               absolute
-              -right-3
-              -bottom-5
               w-[220px]
               h-[215px]
-              z-10
+              object-cover
+              right-[-15px]
+              bottom-[-22px]
               pointer-events-none
-              hidden lg:block
+              select-none
+              z-10
+
+              max-md:w-[120px]
+              max-md:h-[118px]
+              max-md:right-[-10px]
+              max-md:bottom-[-10px]
             "
-          >
-            <img
-              src={rightImage}
-              alt=""
-              className="w-full h-full object-contain"
-            />
-          </div>
+          />
         )}
       </div>
     </section>

@@ -10,6 +10,14 @@ export const categoriesApi = apiSlice.injectEndpoints({
 
       transformResponse: (response) => response.categories,
     }),
+    getBrands: builder.query({
+      query: () => ({
+        url: "brands",
+        method: "GET",
+      }),
+
+      transformResponse: (response) => response.data,
+    }),
     getCategoriesWithProducts: builder.query({
   query: () => ({
     url: "categories-with-products",
@@ -35,23 +43,55 @@ getChildCategories: builder.query({
       transformResponse: (response) =>
         response.childCategories,
     }),
+getSubCategories: builder.query({
+      query: (category_id) => ({
+        url: `subcategory/${category_id}`,
+        method: "GET",
+      }),
+
+      transformResponse: (response) =>
+        response.subcategories,
+    }),
+
+
 getCategoryProducts: builder.query({
-  query: (categoryId) => ({
-    url: `category/${categoryId}`,
-    method: "GET",
+  query: (id) => ({
+    url: `category/${id}`,
+    method: "POST",
   }),
-    transformResponse: (response) => response,
 
+  transformResponse: (response) => ({
+    title: response.category_name,
+    products: response.products.data,
+    pagination: response.products.meta,
+  }),
 }),
+getFilteredProducts: builder.query({
+  query: (filters) => ({
+    url: "product",
+    method: "GET",
+    params: filters,
+  }),
 
-
+  transformResponse: (response) => ({
+    products: response.data,
+    pagination: {
+      currentPage: response.current_page,
+      totalItems: response.total_items,
+      totalPages: response.total_page,
+    },
+  }),
+}),
   }),
 });
 
 export const {
   useGetCategoriesQuery,
+  useGetBrandsQuery,
   useGetCategoriesWithProductsQuery,
   useGetAllCategoriesQuery,
+   useGetChildCategoriesQuery,
+   useGetSubCategoriesQuery,
    useGetCategoryProductsQuery,
-   useGetChildCategoriesQuery
+   useGetFilteredProductsQuery
 } = categoriesApi;

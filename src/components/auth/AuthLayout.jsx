@@ -1,4 +1,5 @@
 import logo from "../../assets/img/headerLogo.png";
+import authBg from "../../assets/img/auth-bg.jpg.jpeg";
 
 export default function AuthLayout({
   title,
@@ -17,6 +18,9 @@ export default function AuthLayout({
       bg-[#F7F7FB]
       px-5
     "
+      style={{
+        backgroundImage: `url(${authBg})`,
+      }}
     >
       {/* Background */}
 

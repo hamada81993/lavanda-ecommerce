@@ -162,7 +162,7 @@ export default function PerfumeBanner({ bgImage, bottleImage }) {
   md:h-[300px]
 
 
-    z-50
+    z-30
 object-contain
 
     drop-shadow-[15px_25px_20px_rgba(0,0,0,0.3)]

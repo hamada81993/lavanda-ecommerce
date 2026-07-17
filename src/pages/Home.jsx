@@ -37,16 +37,16 @@ import Footer from "../components/sections/footer";
 import { useEffect } from "react";
 import { getRecentProducts } from "../services/productApi";
 import { useDispatch, useSelector } from "react-redux";
-import { useGetCategoriesQuery, useGetCategoriesWithProductsQuery } from "../redux/categories/categoriesApi";
+import { useGetAllCategoriesQuery, useGetCategoriesWithProductsQuery } from "../redux/categories/categoriesApi";
 import { useGetRecentProductsQuery } from "../redux/products/productsApi";
+
+
 export default function Home() {
 
-const dispatch =
-useDispatch();
 const {
   data: categories = [],
   isLoading: categoriesLoading,
-} = useGetCategoriesQuery();
+} = useGetAllCategoriesQuery();
 
 const {
   data: sections = [],
@@ -204,6 +204,7 @@ const {
         />
 
         </Routes>
+       
     </>
   );
 }

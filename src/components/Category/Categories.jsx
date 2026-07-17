@@ -1,6 +1,3 @@
-
-
-
 import { useEffect, useRef, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -150,7 +147,7 @@ export default function Categories({
         "
       >
         <img
-src={cat.image_url}          
+src={cat.image}          
 alt={cat.name}
           className="
             w-full

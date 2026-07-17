@@ -72,8 +72,8 @@ export default function ForgotPassword() {
           className="
             w-full
             h-[54px]
-            rounded-full
-            bg-[#8F7AAE]
+            rounded
+            bg-primary-btn
             text-white
             font-semibold
             text-[17px]
@@ -91,7 +91,7 @@ export default function ForgotPassword() {
           onClick={() => navigate("/login")}
           className="
             text-center
-            text-[#8F7AAE]
+           text-[var(--primaryText)]
             font-medium
             cursor-pointer
           "

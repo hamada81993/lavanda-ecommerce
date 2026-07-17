@@ -25,31 +25,81 @@ export default function Footer() {
 </Link>
 </div>        
 
-            <p className="text-sm text-[#94a3b8] leading-6">
-              Beauty crafted with love for your skin.
-            </p>
+<p
+  className="
+    font-['Segoe_UI_Symbol']
+    text-[14.05px]
+    leading-[18.075px]
+    font-normal
+    text-[#9CA3AF]
+  "
+>
+  Your destination for premium beauty products.
+  <br />
+  Discover the best in makeup, skincare, and more.
+</p>
 
             <div className="flex flex-col gap-3">
-              <h4 className="text-white font-semibold text-sm">
-                Subscribe Newsletter
-              </h4>
+             <h4
+  className="
+    font-['Segoe_UI_Symbol']
+    text-[14.05px]
+    leading-[18.075px]
+    font-normal
+    text-white
+  "
+>
+  Subscribe to our Newsletter
+</h4>
 
-              <div className="flex overflow-hidden rounded-lg border border-white/10 bg-white/5">
-                <input
-                  type="email"
-                  placeholder="Enter email"
-                  className="flex-1 bg-transparent px-4 py-3 text-white outline-none placeholder:text-[#64748b]"
-                />
-                <button className="px-4 text-sm bg-[#9f7aea] hover:bg-[#8b5cf6] text-white">
-                  Subscribe
-                </button>
-              </div>
+<div
+  className="
+    flex
+    items-start
+    gap-[6px]
+    w-full
+  "
+>
+  <input
+    type="email"
+    placeholder="Enter email"
+    className="
+      flex-1
+      rounded-[8px]
+      bg-[#1F2937]
+      px-[12px]
+      pt-[8px]
+      pb-[7px]
+      text-white
+      text-[14px]
+      outline-none
+      placeholder:text-[#64748B]
+    "
+  />
+
+  <button
+    className="
+      rounded-[8px]
+      bg-primary
+      px-5
+      py-[8px]
+      text-sm
+      font-medium
+      text-white
+      hover:opacity-90
+      transition
+    "
+  >
+    Subscribe
+  </button>
+</div>
             </div>
 
             {/* SOCIAL */}
-            <div className="flex gap-3 mt-2">
+  <div className="flex gap-3 mt-2">
   {socialLinks.map((item, index) => {
-    const Icon = item.icon;
+    
+    
 
     return (
       <a
@@ -58,18 +108,23 @@ export default function Footer() {
         target="_blank"
         rel="noreferrer"
         className="
-          w-8 h-8
-          flex items-center justify-center
-          rounded-full
-          bg-white/5
-          text-[#94a3b8]
+          w-[36px]
+          h-[36px]
+          p-2
+          flex
+          items-center
+          justify-center
+          rounded-[10px]
+          bg-[#1F2937]
+          text-[#9CA3AF]
           hover:bg-primary
           hover:text-white
-          transition
+          transition-all
+          duration-300
         "
       >
-        <Icon size={14} />
-      </a>
+ {item.icon}      
+ </a>
     );
   })}
 </div>

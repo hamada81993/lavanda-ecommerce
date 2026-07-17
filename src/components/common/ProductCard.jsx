@@ -53,24 +53,29 @@ const price =
 
 
 
-const handleAddToCart = async (e) => {
-  e.stopPropagation();
+ const handleAddToCart = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.info("Please login to add products to your cart");
+      navigate("/login");
+      return;
+    }
+    try {
+      const res = await addToCart({
+        product_id: product.id,
+        quantity: qty,
+      }).unwrap();
+      toast.success(res.msg || "Product added to cart!");
+    } catch (err) {
+      if (err?.status === 401) {
+        toast.info("Session expired. Please login again.");
+        navigate("/login");
+      } else {
+        toast.error(err?.data?.msg || "Failed to add to cart");
+      }
+    }
+  };
 
-  try {
-    const res = await addToCart({
-  product_id: id,
-  quantity: 1,
-}).unwrap();
-
-    setAdded(true);
-
-    toast.success(res.msg || "Product added successfully");
-  } catch (err) {
-    toast.error(
-      err?.data?.msg || "Failed to add product"
-    );
-  }
-};
 
 
   return (

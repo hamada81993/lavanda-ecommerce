@@ -111,6 +111,7 @@ export const {
   clearCoupon,
   clearCheckout,
   savePayment,
+  saveOrder,
 } = checkoutSlice.actions;
 
 

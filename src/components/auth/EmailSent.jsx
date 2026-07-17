@@ -18,7 +18,7 @@ export default function EmailSent() {
           className="
             w-16
             h-16
-            rounded-full
+            rounded
             bg-[#2ECC71]
             mx-auto
             flex
@@ -79,8 +79,8 @@ export default function EmailSent() {
             mt-8
             w-full
             h-[54px]
-            rounded-full
-            bg-[#8F7AAE]
+            rounded
+         bg-primary-btn
             text-white
             font-semibold
             hover:opacity-90
@@ -93,7 +93,7 @@ export default function EmailSent() {
           onClick={() => navigate("/login")}
           className="
             mt-5
-            text-[#8F7AAE]
+          text-[var(--primaryText)]
             cursor-pointer
           "
         >

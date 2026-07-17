@@ -16,35 +16,36 @@ export const useWishlist = () => {
 
   const wishlist =
     data?.data ?? [];
+  const token = localStorage.getItem("token");
 
   const isWishlisted = (id) =>
-    wishlist.some(
-      (item) => item.prd_id === id
-    );
-
-  const handleWishlist = async (e, id) => {
+    token ? wishlist.some((item) => item.prd_id === id) : false;
+    const handleWishlist = async (e, id) => {
     e?.preventDefault();
     e?.stopPropagation();
 
+    if (!token) {
+      toast.info("Please login to manage your wishlist");
+      navigate("/login");
+      return;
+    }
+
     try {
       if (isWishlisted(id)) {
-        const res =
-          await removeWishlist(id).unwrap();
-
-        toast.success(res.msg);
+        const res = await removeWishlist(id).unwrap();
+        toast.success(res.msg || "Removed from wishlist");
       } else {
-        const res =
-          await toggleWishlist(id).unwrap();
-
-        toast.success(res.msg);
+        const res = await toggleWishlist(id).unwrap();
+        toast.success(res.msg || "Added to wishlist");
       }
-
       refetch();
     } catch (err) {
-      toast.error(
-        err?.data?.msg ||
-          "Something went wrong"
-      );
+      if (err?.status === 401) {
+        toast.info("Session expired. Please login again.");
+        navigate("/login");
+      } else {
+        toast.error(err?.data?.msg || "Something went wrong");
+      }
     }
   };
 
